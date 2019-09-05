@@ -1,1 +1,24 @@
-abc
+This repository is about CJE exam
+1) Preparation of shared libraries with both Global and sandbox(local) libraries
+2) We need to set the Global settings
+  a) Global libraries calling  with particular branch
+3)We need to understand Concurrent builds in jenkins
+4) Adding the nodes in to new machine
+5) Distrubted  builds preparations
+6) Cron schedule for a job
+7) whether we can execute freestyle jobs inside pipeline scripts
+8) Topics about poll scm and build trigger
+9) what are the language we can use in Jenkins
+10)Rest API method
+11) Jenkins CLI commands
+12) Groovy libraries
+13) Security authentication for particular users
+14) Types of testing e.g ) acceptance testing 2) smoke testing 3) functional testing
+15) Questions about Fingerprints
+16)promoted build jobs
+17)fungible agent
+18)How to revert back previous version of plugins
+19) when the job executing and all of sudden the Jenkins is down . what will happen to the jons
+20) what are version control tools  we can integrate jenkins
+21)How can we use CRUMB?
+22)Monitoring the nodes
