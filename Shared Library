@@ -66,3 +66,32 @@ Steps for pipeline template
    env.Jnimage = docker.io/jenkinsslave:4.0
    Docker repository details in image,grooovy
    env.dockerRegid = docker.io/prabhu
+   env.cred = "abc"
+   Application Docker image
+   env.AppDockerImage = nodejs-8.9.3:1.0
+   to skip the stage .we can boolean 
+   e.g) env.skipCheckout='false'
+        env.skiptest='false'
+        
+        Checkout url
+        env.scmurl = scm.getUserRemoteConfigs()[0].geturl
+        env.repositorydetails = scm.getUserRemoteConfigs()[0].geturl().tokenize('/').last().split("\\.")[0]
+        env.NodeLabel = "${repositoryName)" + env.job-name.replaceAll("%2F", "-") 
+        
+        sonar details
+        env.sonarcred="abc"
+        artifactory
+         jfrog.reponame=libs-snapshot
+         
+         uipodTemplate.groovy
+         apiVersion: v1
+         kind: Pod
+         metadata:
+            labels:
+               app: my-label
+         spec:
+            containers:
+            - name: npm
+              image:nodejs:1.8.3:1.0
+              tty: true
+              workingDir: '/var/data
