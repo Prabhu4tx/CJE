@@ -94,4 +94,10 @@ Steps for pipeline template
             - name: npm
               image:nodejs:1.8.3:1.0
               tty: true
-              workingDir: '/var/data
+              workingDir: '/var/data'
+              command: ['cat']
+              volumeMounts:
+              - name:mypod
+               mountPath: /var/data'
+               
+               
