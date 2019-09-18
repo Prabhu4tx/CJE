@@ -1,0 +1,68 @@
+This is for building multiple microservices e.g) SprintBoot
+the integration and delivery pipelines of your services .we no need to copy jenkins file for each repo instead we will have a template
+that can be applied easily to all of your service
+
+Module:
+Maven
+nodejs
+Talend
+BFF Configuration
+
+Steps for pipeline template
+ 1)Checkout code
+ 2)npminstalll
+ 3)unittesting&sonar
+ 4)Artifacts
+ 5)Build docker image
+ 6)scanning using twistlock
+ image pusg to container registry
+ 
+ parameterized dockerfile
+ there will be .npmrc and .yarnrc which will have artifactory details where will get all the depedencies packages
+ Directory structure
+ \resources
+ \src
+ -- com
+     --project
+       --bff
+          bffpipeline.groovy
+          bffpipelineoperation.groovy
+          podtemp.groovy
+       --common
+          commutil.groovy
+          curlutil.groovy
+          imageutil.groovy
+          shellutil.groovy
+          Jsonutil.groovy
+          shellutil.groovy
+          testingutils.groovy
+          npmutil.groovy
+\vars
+  imagesprop.groovy
+  commonproperties.groovy
+  Dockercred.groovy
+  Mainworkflow.groovy
+  npmyaml.groovy
+  bffcommon.groovy
+  
+  Dockerfile
+   ARG DockerPullImg
+   FROM ${nodejs:1.8.0}
+   ARG  addressbook
+   COPY ${addressbook} ./
+   RUN tar -zxf addressbook
+   RUN chown -R prabhu4tx:prabhu4tx /var/opt/app
+   USER prabhu4tx
+   
+   Expose 5000
+   CMD["node","."]
+   
+   flow for the repo
+   Mainworkflow
+   The main scriptis workflow for the entrypoint
+   samplepropert.groovy
+   containerimage
+   env.Nodejsimg = docker.io/nodejsproject:1.1
+   env.Jnimage = docker.io/jenkinsslave:4.0
+   Docker repository details in image,grooovy
+   env.dockerRegid = docker.io/prabhu
