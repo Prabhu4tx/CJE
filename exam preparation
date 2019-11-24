@@ -16,3 +16,111 @@ Job/project Scope
  Artifacts 
 Artifacts refers to immutable files that are generated during a build or a pipeline run . These are archived on the jenkins master for later retrivel
 A single build can have multiple artifacts associated with it . this can jar,war or ear 
+
+Build tools:
+ maven,Ant and shell scripts 
+ configuration varies by build tool
+ 1) start jenkins and install required plugins
+ 2) Perform global configuration
+ 3) Create a job/Pipeline that utilizes the build tool
+ 4) update the tools ,configuration
+ 
+ SCM tools:
+ that is used to track changes in code
+Git,subversion,Mercurial and perforce
+changes can be tracked or rolled back as needed.version of the code can be compared ,stored and merged with other versions
+
+ 
+ infrastructure as a code
+ --> user interface 
+ --> Back end
+ Data services
+ Network 
+ 
+ Brancing and merging strategies
+ Incremental update:
+ Repository --> Incremental branch
+ clean branch : delete local and clone
+ 
+ 
+ These are the method of checking out abd checking in code to source control in such a way that a source of truth
+ Testing and Notifications:
+  --> Testing the process of checking code to ensure that is worked as designed or that its output is what is expected
+  
+  Types of testing:
+  Unit test : test individual test
+  
+  Smoke test : general test of the software that check main functionality of the software
+  
+  Verification/Functional test : 
+  testing check a specific function of the software
+  
+  
+  Acceptance test :
+  handoff test of a software to the client 
+  software meets thier expections
+  Notifications:
+   critical to an automated process ,
+   if a build fails or if you need to manuallly approve a deploymenr
+   
+   Types:
+    email
+    sms
+    instant messages via plugins
+    slack
+    
+  Distrubted build in Jenkins:
+  
+   master acts as a controller for a build ,running specific builds on specific agents
+ Nodes with specific configurations can be tagged so the pipeline steps specific to that configurations are directed to that node
+ master ====== slaves1
+     
+        ======== slaves2
+        ======== slaves3
+        
+        
+        Master/Agent communication is via SSH  or JLNP
+        
+        Agents should be fiungible (replacable)
+        when agent have vulternability agent should be removed and added with new agent
+        
+        
+  Plugins:
+  
+  Plugins are extensions to jenkins that add to its functionality
+  plugins Manager 
+  
+  Add / remove disable or enable plugins
+  
+  Rest API: important 
+  Appplication interface
+  Jenkins provides
+  curl jenkinsurl:8080/jobs/jobname/buildnumber. -user username:password
+  parameterized build using Rest API:
+  
+  curl jenkinsurl:8080/jobs/jobsname/buildnumber -user username:password -data-urlencode json='{"parameter": [{"name": "id"}, { "somevalue":"abcd"}]}'
+  why we use of api
+  API can be used to create jobs in programmatic way
+  once the job is defined as code it can be checked in to source and verged and Merged
+  
+  Rest API
+  Build a Job + stream console o/p
+  
+  GET/crumbissuer/api/json     Authentication
+  output ;
+  200 { "crumb":"123","crumbRequestField":"Jenkins-crumb"
+  post/job/name/build     Authentication ,Jenkins crumb
+  
+  output : 
+  200
+  GET /queue /item/number/api/json Authentication,jenkins-crumb
+  200{"_class":"hudson.model.queue$LeftItem" }
+  
+  jobs can  be copied and once a pipeline has been standarzed it can be reproduced without manual configuration
+  
+  
+  API can be leveraged to facilitate reporting on the status of a build queue and the load on the jenkins to determins
+  
+        
+        
+ 
