@@ -122,5 +122,21 @@ changes can be tracked or rolled back as needed.version of the code can be compa
   API can be leveraged to facilitate reporting on the status of a build queue and the load on the jenkins to determins
   
  CRUMB=$(wget -q --auth-no-challenge --user prabhu --password prabhu --output-document - 'http://3.228.219.215:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+ curl -X POST http://prabhu:1108f04107ef04c5f66746965c4cbf5977@3.228.219.215:8080/job/mystuff/job/scripts/job/scripty/buildWithParameters --data-urlencode json='{"parameter": [{"Passed":"newvalue1", "first":"34", "second":"26"}]}'
         
+ Security:
+ Authentication:
+   Delegate to Servlet container
+   Jenkins own user db
+   LDAP 
+   unix user/group db
+   Authorization:
+   Anyone can do anything
+   Legacy mode
+   matrix based security
+   
+   Project based Strategy 
+   
+   
+    
  
