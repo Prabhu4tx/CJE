@@ -1,0 +1,18 @@
+What is  Job
+create new jobs /create new items
+pipeline:
+project used to be called a workdlow
+DSL (Domain specific language)
+Multibranch pipeline --> in the repository jenkins will be looking for Jenkinsfile and each branch scan the file and proced with the pipeline flow
+
+Job/project Scope
+--> Global libraries
+    that are brought in to the scope of a project simply by being included 
+    
+ Build:
+ result of a single execution of a project
+ A single task within a project
+ check scm for changes
+ Artifacts 
+Artifacts refers to immutable files that are generated during a build or a pipeline run . These are archived on the jenkins master for later retrivel
+A single build can have multiple artifacts associated with it . this can jar,war or ear 
