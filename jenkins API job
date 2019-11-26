@@ -1,0 +1,33 @@
+ import requests
+
+ jenkins_job_name = "AutomatedDeploymentTest"
+
+ jenkins_url = "http://localhost:8080"
+ jenkins_user = "prabhu"
+ jenkins_pwd = "Albert@2019"
+
+ buildwithparameters = True
+ jenkins_params =  {'token': '116cd5d6f7907a28dd887fa40292086736' ,
+                     'result2': 'success' ,
+                     'result1': 'success'}
+ try:
+
+     auth= (jenkins_user, jenkins_pwd)
+     crumb_data= requests.get("/{0}/crumbIssuer/api/json".format(jenkins_url),auth = auth,headers={'content-type': 'application/json'})
+     if str(crumb_data.status_code) == "200":
+
+             if buildwithParameters:
+                     data = requests.get("{0}/job/{1}/buildWithParameters".format(jenkins_url,jenkins_job_name),auth=auth,params=jenkins_params,headers={'content-type': 'application/json','Jenkins-Crumb':crumb_data.json()['crumb']}))
+             else:
+                     data = requests.get("{0}/job/{1}/build".format(jenkins_url,jenkins_job_name),auth=auth,params=jenkins_params,headers={'content-type': 'application/json','Jenkins-Crumb':crumb_data.json()['crumb']})
+            if str(data.status_code) == "201":
+                  print ("Jenkins job is triggered")
+            else:
+
+                  print ("Failed to trigger the Jenkins Job")
+     else:
+            print("Couldn't fetch Jenkins-crumb")
+            raise
+ except Exception as e:
+        print ("Failed triggerring the Jenkins Job")
+        print ("Error: " + str(e))
