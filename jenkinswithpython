@@ -1,2 +1,7 @@
 https://www.easyaslinux.com/tutorials/devops/how-to-trigger-a-jenkins-job-remotely-from-python-script/
 https://wiki.jenkins.io/display/JENKINS/Remote+access+API
+
+
+curl http://prabhu:116cd5d6f7907a28dd887fa40292086736@localhost:8080/job/AutomatedDeploymentTest/lastBuild/api/json
+{"_class":"hudson.model.FreeStyleBuild","actions":[{"_class":"hudson.model.CauseAction","causes":[{"_class":"hudson.model.Cause$UserIdCause","shortDescription":"Started by user Prabhu","userId":"prabhu","userName":"Prabhu"}]},{},{}],"artifacts":[],"building":false,"description":null,"displayName":"#9","duration":23,"estimatedDuration":30,"executor":null,"fullDisplayName":"AutomatedDeploymentTest #9","id":"9","keepLog":false,"number":9,"queueId":9,"result":"SUCCESS","timestamp":1574756511265,"url":"http://localhost:8080/job/AutomatedDeploymentTest/9/","builtOn":"","changeSet":{"_class":"hudson.scm.EmptyChangeLogSet","items":[],"kprabhusMacBook-pro:~ prabhubhaskar$ 
+
