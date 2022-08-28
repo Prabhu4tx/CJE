@@ -4,7 +4,7 @@
 
  jenkins_url = "http://localhost:8080"
  jenkins_user = "prabhu"
- jenkins_pwd = "Albert@2019"
+ jenkins_pwd = "****"
 
  buildwithparameters = True
  jenkins_params =  {'token': '116cd5d6f7907a28dd887fa40292086736' ,
